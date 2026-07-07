@@ -716,15 +716,15 @@
     </div>
 
     <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-      <div class="work-card" style="flex-direction: column; border: none; background: var(--bg); gap: 0;">
-        <img src="assets/wechat-data.png" alt="公众号数据概览" style="width: 100%; display: block; border-radius: 12px 12px 0 0; aspect-ratio: 16/9; object-fit: cover;">
+      <div class="work-card" style="flex-direction: column; border: none; background: var(--bg); gap: 0; overflow: hidden;">
+        <img src="assets/wechat-data.png" alt="公众号数据概览" style="width: 100%; display: block; border-radius: 12px 12px 0 0;">
         <div style="padding: 1rem;">
           <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem;">数据概览</div>
           <div style="color: var(--muted); font-size: 0.8rem;">单日阅读 1,861，原创内容 6 篇，总用户数 39</div>
         </div>
       </div>
-      <div class="work-card" style="flex-direction: column; border: none; background: var(--bg); gap: 0;">
-        <img src="assets/wechat-articles.png" alt="公众号发表记录" style="width: 100%; display: block; border-radius: 12px 12px 0 0; aspect-ratio: 16/9; object-fit: cover;">
+      <div class="work-card" style="flex-direction: column; border: none; background: var(--bg); gap: 0; overflow: hidden;">
+        <img src="assets/wechat-articles.png" alt="公众号发表记录" style="width: 100%; display: block; border-radius: 12px 12px 0 0;">
         <div style="padding: 1rem;">
           <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem;">发表记录</div>
           <div style="color: var(--muted); font-size: 0.8rem;">累计发表 33 篇，单篇最高阅读 2,510</div>
@@ -769,7 +769,7 @@
 
       <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--bg2); border: 1px solid var(--rule); border-radius: 12px;">
         <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent);">项目背景</h4>
-        <div style="color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1rem;">这支广告基于真实甲方需求文档制作。品牌<strong style="color: var(--ink);">「山外有山」</strong>是一家高端茶叶品牌，要求用AI工具完成春茶季内容营销，目标人群为30-45岁一二线城市注重生活品质的中产人群。</div>
+        <div style="color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1rem;">这个视频是我用 <strong style="color: var(--ink);">DeepSeek</strong> 虚构的一个作业练习——假设品牌「山外有山」是一家高端茶叶品牌，要求用AI工具完成春茶季内容营销，目标人群为30-45岁一二线城市注重生活品质的中产人群。</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem;">
           <div style="background: var(--bg); border-radius: 8px; padding: 0.75rem;">
             <div style="font-weight: 600; font-size: 0.8rem; color: var(--accent); margin-bottom: 0.25rem;">品牌调性</div>
@@ -788,7 +788,7 @@
             <div style="color: var(--muted); font-size: 0.78rem;">6条短视频 + 4篇小红书图文，附AI使用说明与数据复盘</div>
           </div>
         </div>
-        <div style="color: var(--muted); font-size: 0.8rem; font-style: italic; border-left: 3px solid var(--accent); padding-left: 0.75rem;">这是我拿到的真实 brief，我从中选取了"产区溯源"方向，用30秒广告的形式完成了其中一条短视频的成片制作。</div>
+        <div style="color: var(--muted); font-size: 0.8rem; font-style: italic; border-left: 3px solid var(--accent); padding-left: 0.75rem;">这是我用 DeepSeek 生成的模拟 brief，从中选取了"产区溯源"方向，用30秒广告的形式完成了其中一条短视频的成片制作。</div>
       </div>
 
       <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--bg2); border: 1px solid var(--rule); border-radius: 12px;">
@@ -829,14 +829,14 @@
         <div>
           <div style="font-weight: 600; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.4rem;">4. 关键画面示例</div>
           <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;">以下是使用<strong style="color: var(--ink);">即梦</strong>生成的核心画面，展示从创意到成片的视觉落地。</div>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
-            <div style="border-radius: 8px; overflow: hidden;">
+          <div style="display: flex; gap: 0.75rem; justify-content: flex-start; flex-wrap: wrap;">
+            <div style="border-radius: 8px; overflow: hidden; width: 140px; flex-shrink: 0;">
               <img src="assets/tea-picking.png" alt="老人采茶" style="width: 100%; display: block; aspect-ratio: 1; object-fit: cover;">
             </div>
-            <div style="border-radius: 8px; overflow: hidden;">
+            <div style="border-radius: 8px; overflow: hidden; width: 140px; flex-shrink: 0;">
               <img src="assets/tea-brewing.png" alt="滚水冲泡" style="width: 100%; display: block; aspect-ratio: 1; object-fit: cover;">
             </div>
-            <div style="border-radius: 8px; overflow: hidden;">
+            <div style="border-radius: 8px; overflow: hidden; width: 140px; flex-shrink: 0;">
               <img src="assets/tea-cup.png" alt="茶汤入杯" style="width: 100%; display: block; aspect-ratio: 1; object-fit: cover;">
             </div>
           </div>
