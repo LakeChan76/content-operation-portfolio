@@ -662,7 +662,7 @@
   <section id="wechat">
     <div class="section-header">
       <div class="label">WeChat Official Account</div>
-      <h2>公众号运营：告别土味的AI运营</h2>
+      <h2>公众号运营：小孜的运营日记</h2>
       <p>探索AI工具在内容运营中的真实落地效果，分享转型者的第一手经验</p>
     </div>
 
@@ -715,19 +715,29 @@
       </div>
     </div>
 
-    <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-      <div class="work-card" style="flex-direction: column; border: none; background: var(--bg); gap: 0; overflow: hidden;">
-        <img src="assets/wechat-data.png" alt="公众号数据概览" style="width: 100%; display: block; border-radius: 12px 12px 0 0;">
-        <div style="padding: 1rem;">
-          <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem;">数据概览</div>
-          <div style="color: var(--muted); font-size: 0.8rem;">单日阅读 1,861，原创内容 6 篇，总用户数 39</div>
+    <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start;">
+        <div style="background: var(--bg); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden;">
+          <img src="assets/wechat-data.png" alt="公众号数据概览" style="width: 100%; display: block;">
+        </div>
+        <div style="background: var(--bg); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden;">
+          <img src="assets/wechat-articles.png" alt="公众号发表记录" style="width: 100%; display: block;">
         </div>
       </div>
-      <div class="work-card" style="flex-direction: column; border: none; background: var(--bg); gap: 0; overflow: hidden;">
-        <img src="assets/wechat-articles.png" alt="公众号发表记录" style="width: 100%; display: block; border-radius: 12px 12px 0 0;">
-        <div style="padding: 1rem;">
-          <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem;">发表记录</div>
-          <div style="color: var(--muted); font-size: 0.8rem;">累计发表 33 篇，单篇最高阅读 2,510</div>
+      <div style="display: flex; gap: 1.5rem; justify-content: center;">
+        <div style="text-align: center;">
+          <div style="font-weight: 700; font-size: 1.25rem; color: var(--accent); margin-bottom: 0.25rem;">1,861</div>
+          <div style="color: var(--muted); font-size: 0.8rem;">单日阅读</div>
+        </div>
+        <div style="width: 1px; background: var(--rule);"></div>
+        <div style="text-align: center;">
+          <div style="font-weight: 700; font-size: 1.25rem; color: var(--accent); margin-bottom: 0.25rem;">33</div>
+          <div style="color: var(--muted); font-size: 0.8rem;">累计发表</div>
+        </div>
+        <div style="width: 1px; background: var(--rule);"></div>
+        <div style="text-align: center;">
+          <div style="font-weight: 700; font-size: 1.25rem; color: var(--accent); margin-bottom: 0.25rem;">2,510</div>
+          <div style="color: var(--muted); font-size: 0.8rem;">单篇最高阅读</div>
         </div>
       </div>
     </div>
@@ -829,14 +839,14 @@
         <div>
           <div style="font-weight: 600; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.4rem;">4. 关键画面示例</div>
           <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;">以下是使用<strong style="color: var(--ink);">即梦</strong>生成的核心画面，展示从创意到成片的视觉落地。</div>
-          <div style="display: flex; gap: 0.75rem; justify-content: flex-start; flex-wrap: wrap;">
-            <div style="border-radius: 8px; overflow: hidden; width: 140px; flex-shrink: 0;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; max-width: 520px;">
+            <div style="border-radius: 8px; overflow: hidden;">
               <img src="assets/tea-picking.png" alt="老人采茶" style="width: 100%; display: block; aspect-ratio: 1; object-fit: cover;">
             </div>
-            <div style="border-radius: 8px; overflow: hidden; width: 140px; flex-shrink: 0;">
+            <div style="border-radius: 8px; overflow: hidden;">
               <img src="assets/tea-brewing.png" alt="滚水冲泡" style="width: 100%; display: block; aspect-ratio: 1; object-fit: cover;">
             </div>
-            <div style="border-radius: 8px; overflow: hidden; width: 140px; flex-shrink: 0;">
+            <div style="border-radius: 8px; overflow: hidden;">
               <img src="assets/tea-cup.png" alt="茶汤入杯" style="width: 100%; display: block; aspect-ratio: 1; object-fit: cover;">
             </div>
           </div>
@@ -851,25 +861,82 @@
       <div class="section-header">
         <div class="label">My Methodology</div>
         <h2>我理解的内容运营</h2>
-        <p>用内容连接用户和产品，通过持续生产、分发和优化，让用户找到想要的东西，也让产品找到需要它的人</p>
+        <p>内容运营不是自嗨式的创作，而是以内容为杠杆，连接"用户需求"与"商业目标"，实现可规模化的增长。</p>
       </div>
 
-      <div class="method-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+      <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem;">
         <div style="background: var(--bg2); border: 1px solid var(--rule); border-radius: 12px; padding: 1.5rem;">
-          <div style="font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.75rem;">01</div>
-          <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">内容发出去只是开始</h4>
-          <p style="color: var(--muted); font-size: 0.85rem; line-height: 1.6;">每条内容的生命在于用户看到它之后的反应——点赞、评论、收藏、转化。我习惯用数据跟踪内容的"后半程"。</p>
+          <div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 0.15rem 0.5rem; border-radius: 4px;">用户向</span>
+            <h4 style="font-size: 1rem; font-weight: 700;">提供价值，建立信任</h4>
+          </div>
+          <div style="color: var(--muted); font-size: 0.85rem; line-height: 1.7;">
+            <p style="margin-bottom: 0.4rem;">不做自己觉得好的内容，做用户需要的内容。</p>
+            <p>内容是产品和用户之间的桥梁，核心是解决痛点、提供情绪价值，最终沉淀为品牌信任。</p>
+          </div>
         </div>
         <div style="background: var(--bg2); border: 1px solid var(--rule); border-radius: 12px; padding: 1.5rem;">
-          <div style="font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.75rem;">02</div>
-          <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">选题决定80%的命运</h4>
-          <p style="color: var(--muted); font-size: 0.85rem; line-height: 1.6;">每天刷<strong style="color: var(--accent);">30分钟</strong>热点，每周建立<strong style="color: var(--accent);">10个选题</strong>的选题库，从评论区、热搜、同行爆款中提炼用户真正关心的话题。</p>
+          <div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 0.15rem 0.5rem; border-radius: 4px;">运营向</span>
+            <h4 style="font-size: 1rem; font-weight: 700;">体系化生产，精准分发</h4>
+          </div>
+          <div style="color: var(--muted); font-size: 0.85rem; line-height: 1.7;">
+            <p style="margin-bottom: 0.4rem;"><strong style="color: var(--ink);">拒绝玄学：</strong>把爆款拆解为 SOP（选题库 → 标准化创作 → 多渠道分发 → 数据复盘）。</p>
+            <p><strong style="color: var(--ink);">全域思维：</strong>图文 / 短视频不仅是内容，更是 SEO 的占位、算法的饵料、流量的漏斗。</p>
+          </div>
         </div>
         <div style="background: var(--bg2); border: 1px solid var(--rule); border-radius: 12px; padding: 1.5rem;">
-          <div style="font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.75rem;">03</div>
-          <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">人+AI协作，效率翻倍</h4>
-          <p style="color: var(--muted); font-size: 0.85rem; line-height: 1.6;">用AI搭框架、写初稿、做素材，我负责判断逻辑、调整语气、把控调性。<strong style="color: var(--accent);">AI解决"量"</strong>，<strong style="color: var(--accent);">人解决"质"</strong>。</p>
+          <div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 0.15rem 0.5rem; border-radius: 4px;">商业向</span>
+            <h4 style="font-size: 1rem; font-weight: 700;">数据驱动，导向转化</h4>
+          </div>
+          <div style="color: var(--muted); font-size: 0.85rem; line-height: 1.7;">
+            <p style="margin-bottom: 0.4rem;">所有内容动作必须挂钩业务指标（如：阅读量看曝光，互动看粘性，转化看 ROI）。</p>
+            <p>从"流量思维"转向"留量思维"，内容是为了让用户进入私域或完成下单的最后一推。</p>
+          </div>
         </div>
+      </div>
+
+      <div style="background: var(--bg2); border: 1px solid var(--rule); border-radius: 12px; padding: 2rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <div style="font-weight: 700; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.25rem;">内容运营闭环模型</div>
+          <div style="color: var(--muted); font-size: 0.8rem;">洞察需求 → 内容生产 → 多渠道分发 → 数据复盘 → 反哺迭代</div>
+        </div>
+        <svg viewBox="0 0 800 200" style="width: 100%; max-width: 800px; margin: 0 auto; display: block;">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+            </marker>
+            <marker id="arrowhead-return" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+            </marker>
+          </defs>
+
+          <!-- Nodes -->
+          <rect x="20" y="60" width="130" height="56" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="85" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">洞察需求</text>
+
+          <rect x="190" y="60" width="130" height="56" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="255" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">内容生产</text>
+
+          <rect x="360" y="60" width="130" height="56" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="425" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">多渠道分发</text>
+
+          <rect x="530" y="60" width="130" height="56" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="595" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">数据复盘</text>
+
+          <rect x="700" y="60" width="80" height="56" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="740" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">反哺迭代</text>
+
+          <!-- Arrows -->
+          <line x1="150" y1="88" x2="190" y2="88" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <line x1="320" y1="88" x2="360" y2="88" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <line x1="490" y1="88" x2="530" y2="88" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <line x1="660" y1="88" x2="700" y2="88" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+          <!-- Return arrow -->
+          <path d="M 740 116 Q 740 170 85 170 Q 20 170 20 116" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrowhead-return)"/>
+        </svg>
       </div>
     </div>
   </section>
