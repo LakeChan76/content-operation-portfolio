@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>运营数据汇总 - 2026年7月13日</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg2: #f8fafc;
+      --bg3: #f1f5f9;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --rule: #e2e8f0;
+      --accent: #2563eb;
+      --accent2: #3b82f6;
+      --accent-light: #eff6ff;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      --max: 900px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg2);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    header .date {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .platform-section {
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .platform-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .platform-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 0.85rem;
+    }
+
+    .xhs-icon { background: #ff2442; }
+    .wx-icon { background: #07c160; }
+
+    .platform-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .platform-id {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-item {
+      background: var(--bg2);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 3px;
+      height: 16px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .post-list {
+      list-style: none;
+    }
+
+    .post-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .post-item:last-child {
+      border-bottom: none;
+    }
+
+    .post-rank {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .post-rank.top {
+      background: var(--accent);
+      color: white;
+    }
+
+    .post-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .post-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .post-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .post-metrics {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .post-metrics .number {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .post-metrics .label {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .highlight-box .title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-box p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>运营数据汇总</h1>
+      <div class="date">数据更新于 2026年7月13日</div>
+    </header>
+
+    <!-- 小红书 -->
+    <div class="platform-section">
+      <div class="platform-header">
+        <div class="platform-icon xhs-icon">小红书</div>
+        <div>
+          <div class="platform-name">小孜的运营日记</div>
+          <div class="platform-id">ID: 69dcbc950000000033026e2d</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">1186</div>
+          <div class="stat-label">获赞与收藏</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">95</div>
+          <div class="stat-label">粉丝</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">86</div>
+          <div class="stat-label">关注</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">12</div>
+          <div class="stat-label">公开笔记</div>
+        </div>
+      </div>
+
+      <div class="section-title">笔记数据（按点赞数排序）</div>
+      <ul class="post-list">
+        <li class="post-item">
+          <div class="post-rank top">1</div>
+          <div class="post-info">
+            <div class="post-title">运营新人：应该如何理解"内容运营"这个岗</div>
+            <div class="post-meta">置顶 · 内容运营系列</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">384</div>
+            <div class="label">点赞</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">2</div>
+          <div class="post-info">
+            <div class="post-title">26岁文科硕士转行AI，拿到3个offer我还没选</div>
+            <div class="post-meta">求职系列</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">54</div>
+            <div class="label">点赞</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">3</div>
+          <div class="post-info">
+            <div class="post-title">面过运营岗的人不会告诉你的5个问题</div>
+            <div class="post-meta">面试系列</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">45</div>
+            <div class="label">点赞</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">4</div>
+          <div class="post-info">
+            <div class="post-title">运营新人：内容发出去后，怎么做数据分析？</div>
+            <div class="post-meta">HOW系列</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">23</div>
+            <div class="label">点赞</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">5</div>
+          <div class="post-info">
+            <div class="post-title">运营新人：如何掌握"内容运营"制图剪辑能力</div>
+            <div class="post-meta">HOW系列</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">22</div>
+            <div class="label">点赞</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">6</div>
+          <div class="post-info">
+            <div class="post-title">运营新人：如何掌握 "内容运营"的写作力</div>
+            <div class="post-meta">HOW系列</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">21</div>
+            <div class="label">点赞</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="highlight-box">
+        <div class="title">数据洞察</div>
+        <p>置顶笔记「运营新人：应该如何理解"内容运营"这个岗」点赞384、收藏264、评论24，为账号数据最好的笔记。该笔记为小孜IP图文形式（对话体），验证了"人设+干货"的内容形式在小红书的有效性。</p>
+      </div>
+    </div>
+
+    <!-- 微信公众号 -->
+    <div class="platform-section">
+      <div class="platform-header">
+        <div class="platform-icon wx-icon">微信</div>
+        <div>
+          <div class="platform-name">小孜的运营日记</div>
+          <div class="platform-id">未认证公众号</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">43</div>
+          <div class="stat-label">总关注数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">5</div>
+          <div class="stat-label">原创内容</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">158</div>
+          <div class="stat-label">昨日阅读</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">8,777</div>
+          <div class="stat-label">单篇最高阅读</div>
+        </div>
+      </div>
+
+      <div class="section-title">近期发表文章</div>
+      <ul class="post-list">
+        <li class="post-item">
+          <div class="post-rank top">1</div>
+          <div class="post-info">
+            <div class="post-title">三个offer，一个都没去成</div>
+            <div class="post-meta">07月05日 · 原创</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">8,777</div>
+            <div class="label">阅读</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">2</div>
+          <div class="post-info">
+            <div class="post-title">七月校招关了，你才发现自己被扔进了另一个市场</div>
+            <div class="post-meta">07月12日 · 原创</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">100</div>
+            <div class="label">阅读</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">3</div>
+          <div class="post-info">
+            <div class="post-title">毕业生找不到工作，社会现在会怎么看待我们</div>
+            <div class="post-meta">07月10日 · 原创 · 付费</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">75</div>
+            <div class="label">阅读</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">4</div>
+          <div class="post-info">
+            <div class="post-title">毕业生？1270万分之一。</div>
+            <div class="post-meta">07月09日 · 原创</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">54</div>
+            <div class="label">阅读</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">5</div>
+          <div class="post-info">
+            <div class="post-title">AI内容运营 vs 传统内容运营：到底有什么不同？</div>
+            <div class="post-meta">05月26日 · 原创</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">63</div>
+            <div class="label">阅读</div>
+          </div>
+        </li>
+        <li class="post-item">
+          <div class="post-rank">6</div>
+          <div class="post-info">
+            <div class="post-title">什么是AI内容运营？一个转型者的理解</div>
+            <div class="post-meta">05月23日 · 原创</div>
+          </div>
+          <div class="post-metrics">
+            <div class="number">37</div>
+            <div class="label">阅读</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="highlight-box">
+        <div class="title">数据洞察</div>
+        <p>「三个offer，一个都没去成」阅读8,777，为公众号爆款文章。该文发布时间07月05日，正值毕业季求职话题高峰期，验证了"时效性+情绪共鸣"选题策略的有效性。创作周报显示07.06-07.12期间推荐带来8,907阅读量。</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 2rem;">
+      数据由浏览器自动化工具提取于 2026-07-13
+    </div>
+  </div>
+</body>
+</html>
