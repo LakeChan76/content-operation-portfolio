@@ -1136,7 +1136,7 @@
     </div>
     <button class="fm-skip" id="fmSkip">跳过 →</button>
     <div class="fm-hint" id="fmHint">拿起放大镜 — 找到调查对象</div>
-    <div class="fm-found" id="fmFound">已确认：陈子文</div>
+    <div class="fm-found" id="fmFound">已确认：陈子文 — 点击页面进入档案</div>
   </div>
 
   <!-- ====== 放大镜鼠标 ====== -->
@@ -1555,8 +1555,6 @@
             found = true;
             fmHint.classList.add('fade');
             fmFound.classList.add('show');
-            // 2秒后自动进入主站
-            setTimeout(closeIntro, 2000);
           }
         }
 
@@ -1579,14 +1577,13 @@
       // 跳过按钮
       fmSkip.addEventListener('click', closeIntro);
 
-      // 也允许点击任意位置跳过（3秒后启用）
-      setTimeout(function() {
-        fmIntro.addEventListener('click', function(e) {
-          if (e.target !== fmSkip && !found) {
-            // 不自动跳过，让用户探索
-          }
-        });
-      }, 3000);
+      // 找到名字后，点击页面任意位置进入主站
+      fmIntro.addEventListener('click', function(e) {
+        if (e.target === fmSkip) return;
+        if (found) {
+          closeIntro();
+        }
+      });
     })();
 
     // ====== 放大镜鼠标 ======
