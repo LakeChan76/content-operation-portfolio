@@ -1127,25 +1127,22 @@
         <div class="contact-form">
           <h3>写信给我</h3>
           <p>有一个岗位想聊，有一个项目想合作，或者只是一个好问题——写下来，我会回复。</p>
-          <form id="contactForm" action="https://formsubmit.co/13307240780@163.com" method="POST">
-            <input type="hidden" name="_subject" value="来自个人档案网站的联络">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
+          <form id="contactForm">
             <div class="form-group">
               <label>您的称呼</label>
-              <input type="text" name="姓名" placeholder="怎么称呼您" required>
+              <input type="text" id="cf-name" placeholder="怎么称呼您" required>
             </div>
             <div class="form-group">
               <label>邮箱</label>
-              <input type="email" name="邮箱" placeholder="您的邮箱地址" required>
+              <input type="email" id="cf-email" placeholder="您的邮箱地址" required>
             </div>
             <div class="form-group">
               <label>主题</label>
-              <input type="text" name="主题" placeholder="岗位沟通 / 项目合作 / 其他" required>
+              <input type="text" id="cf-subject" placeholder="岗位沟通 / 项目合作 / 其他" required>
             </div>
             <div class="form-group">
               <label>具体内容</label>
-              <textarea name="内容" placeholder="请简要描述您的需求..." required></textarea>
+              <textarea id="cf-message" placeholder="请简要描述您的需求..." required></textarea>
             </div>
             <button type="submit" class="form-submit">
               发送邮件
@@ -1153,6 +1150,13 @@
             </button>
             <div id="formStatus" style="margin-top:1rem;font-size:0.85rem;display:none;"></div>
           </form>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule-light);">
+            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;">也可以直接复制邮箱地址发送邮件：</p>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <code style="font-size:0.9rem;color:var(--ink);background:rgba(0,0,0,0.04);padding:0.35rem 0.75rem;letter-spacing:0.02em;">13307240780@163.com</code>
+              <button id="copyEmail" style="font-size:0.75rem;padding:0.35rem 0.75rem;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;letter-spacing:0.05em;transition:all 0.2s;">复制</button>
+            </div>
+          </div>
         </div>
         <div class="contact-info">
           <div class="contact-info-block">
@@ -1233,37 +1237,45 @@
       });
     });
 
-    // 表单 AJAX 提交
+    // 表单提交：构造 mailto 链接打开邮件客户端
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
-    contactForm.addEventListener('submit', async function(e) {
+    contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const btn = contactForm.querySelector('.form-submit');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '发送中...';
-      btn.disabled = true;
-      try {
-        const formData = new FormData(contactForm);
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (response.ok) {
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#2D4A3E';
-          formStatus.textContent = '邮件已发送，感谢您的来信，我会尽快回复。';
-          contactForm.reset();
-        } else {
-          throw new Error('提交失败');
-        }
-      } catch (err) {
-        formStatus.style.display = 'block';
-        formStatus.style.color = '#c0392b';
-        formStatus.textContent = '发送遇到问题，请直接发送邮件至 13307240780@163.com';
-      }
-      btn.innerHTML = originalText;
-      btn.disabled = false;
+      const name = document.getElementById('cf-name').value;
+      const email = document.getElementById('cf-email').value;
+      const subject = document.getElementById('cf-subject').value;
+      const message = document.getElementById('cf-message').value;
+
+      const mailtoSubject = encodeURIComponent('[来自个人档案] ' + subject);
+      const mailtoBody = encodeURIComponent(
+        '称呼：' + name + '\n' +
+        '邮箱：' + email + '\n' +
+        '主题：' + subject + '\n\n' +
+        '内容：\n' + message
+      );
+      const mailtoLink = 'mailto:13307240780@163.com?subject=' + mailtoSubject + '&body=' + mailtoBody;
+
+      window.location.href = mailtoLink;
+
+      formStatus.style.display = 'block';
+      formStatus.style.color = '#2D4A3E';
+      formStatus.textContent = '正在打开邮件客户端...如未自动打开，请直接发送邮件至 13307240780@163.com';
+    });
+
+    // 复制邮箱
+    const copyBtn = document.getElementById('copyEmail');
+    copyBtn.addEventListener('click', function() {
+      navigator.clipboard.writeText('13307240780@163.com').then(function() {
+        copyBtn.textContent = '已复制';
+        copyBtn.style.background = '#2D4A3E';
+        copyBtn.style.color = '#F5F2ED';
+        setTimeout(function() {
+          copyBtn.textContent = '复制';
+          copyBtn.style.background = 'transparent';
+          copyBtn.style.color = 'var(--ink)';
+        }, 2000);
+      });
     });
   </script>
 </body>
