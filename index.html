@@ -1127,27 +1127,31 @@
         <div class="contact-form">
           <h3>写信给我</h3>
           <p>有一个岗位想聊，有一个项目想合作，或者只是一个好问题——写下来，我会回复。</p>
-          <form action="mailto:13307240780@163.com" method="post" enctype="text/plain">
+          <form id="contactForm" action="https://formsubmit.co/13307240780@163.com" method="POST">
+            <input type="hidden" name="_subject" value="来自个人档案网站的联络">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
             <div class="form-group">
               <label>您的称呼</label>
-              <input type="text" name="name" placeholder="怎么称呼您">
+              <input type="text" name="姓名" placeholder="怎么称呼您" required>
             </div>
             <div class="form-group">
               <label>邮箱</label>
-              <input type="email" name="email" placeholder="您的邮箱地址">
+              <input type="email" name="邮箱" placeholder="您的邮箱地址" required>
             </div>
             <div class="form-group">
               <label>主题</label>
-              <input type="text" name="subject" placeholder="岗位沟通 / 项目合作 / 其他">
+              <input type="text" name="主题" placeholder="岗位沟通 / 项目合作 / 其他" required>
             </div>
             <div class="form-group">
               <label>具体内容</label>
-              <textarea name="message" placeholder="请简要描述您的需求..."></textarea>
+              <textarea name="内容" placeholder="请简要描述您的需求..." required></textarea>
             </div>
             <button type="submit" class="form-submit">
               发送邮件
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             </button>
+            <div id="formStatus" style="margin-top:1rem;font-size:0.85rem;display:none;"></div>
           </form>
         </div>
         <div class="contact-info">
@@ -1227,6 +1231,39 @@
           });
         }
       });
+    });
+
+    // 表单 AJAX 提交
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = contactForm.querySelector('.form-submit');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '发送中...';
+      btn.disabled = true;
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          formStatus.style.display = 'block';
+          formStatus.style.color = '#2D4A3E';
+          formStatus.textContent = '邮件已发送，感谢您的来信，我会尽快回复。';
+          contactForm.reset();
+        } else {
+          throw new Error('提交失败');
+        }
+      } catch (err) {
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#c0392b';
+        formStatus.textContent = '发送遇到问题，请直接发送邮件至 13307240780@163.com';
+      }
+      btn.innerHTML = originalText;
+      btn.disabled = false;
     });
   </script>
 </body>
