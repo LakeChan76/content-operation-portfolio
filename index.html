@@ -781,6 +781,77 @@
       color: var(--ink);
     }
 
+    /* ====== 放大镜鼠标 ====== */
+    .magnifier-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 26px;
+      height: 26px;
+      pointer-events: none;
+      z-index: 9000;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      will-change: transform;
+    }
+
+    .magnifier-cursor svg {
+      width: 26px;
+      height: 26px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      body.magnifier-active {
+        cursor: none;
+      }
+      body.magnifier-active a,
+      body.magnifier-active button,
+      body.magnifier-active input,
+      body.magnifier-active textarea {
+        cursor: none;
+      }
+      .magnifier-cursor.visible {
+        opacity: 1;
+      }
+    }
+
+    /* ====== 入场动画 ====== */
+    @keyframes vt-fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes vt-slide {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes vt-blur {
+      from { opacity: 0; filter: blur(8px); }
+      to { opacity: 1; filter: blur(0); }
+    }
+
+    .animate-fade {
+      animation: vt-fade 0.8s ease forwards;
+    }
+
+    .animate-slide {
+      animation: vt-slide 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .animate-blur {
+      animation: vt-blur 1s ease forwards;
+      opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.5s; }
+    .delay-4 { animation-delay: 0.7s; }
+    .delay-5 { animation-delay: 0.9s; }
+
     /* ====== 滚动显现动画 ====== */
     .reveal {
       opacity: 0;
@@ -861,6 +932,15 @@
 </head>
 <body>
 
+  <!-- ====== 放大镜鼠标 ====== -->
+  <div class="magnifier-cursor" id="magnifierCursor" aria-hidden="true">
+    <svg viewBox="0 0 26 26" fill="none">
+      <circle cx="10.5" cy="10.5" r="7" stroke="#1a1a1a" stroke-width="2.5" fill="rgba(245,242,237,0.55)"></circle>
+      <line x1="15.8" y1="15.8" x2="23" y2="23" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"></line>
+      <circle cx="8.4" cy="8.2" r="2.1" fill="rgba(245,242,237,0.85)"></circle>
+    </svg>
+  </div>
+
   <!-- ====== 菜单覆盖层 ====== -->
   <div class="menu-overlay" id="menuOverlay">
     <div class="menu-overlay-header">
@@ -902,24 +982,24 @@
   <main>
     <!-- ====== 头版 / HERO ====== -->
     <section class="hero container">
-      <div class="hero-meta">
+      <div class="hero-meta animate-fade">
         <div class="label">front page</div>
         <div class="hero-meta-right label">filed under: content operation</div>
       </div>
       <hr class="rule rule-reveal">
-      <div class="hero-case-no reveal">档案编号 CO-2026-001 — 调查结果已发布</div>
-      <h1 class="hero-headline reveal">
+      <div class="hero-case-no animate-fade delay-1">档案编号 CO-2026-001 — 调查结果已发布</div>
+      <h1 class="hero-headline animate-blur delay-2">
         一个文科生<br>
         想做好内容运营<br>
         这件事
       </h1>
-      <p class="hero-subhead reveal">
+      <p class="hero-subhead animate-slide delay-3">
         本科在4A广告公司做活动运营，读研期间持续写作锻炼表达能力。喜欢自媒体和摄影，对内容运营有天然热情。
       </p>
-      <div class="hero-byline reveal">
+      <div class="hero-byline animate-fade delay-4">
         <strong>调查编辑部</strong> · 发自武汉，在求职路上
       </div>
-      <div class="hero-cta reveal">
+      <div class="hero-cta animate-fade delay-5">
         <a href="#works">
           阅读调查档案
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -1195,7 +1275,48 @@
   </main>
 
   <script>
-    // 菜单切换
+    // ====== 放大镜鼠标 ======
+    (function() {
+      const magnifier = document.getElementById('magnifierCursor');
+      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!isFinePointer) return;
+
+      document.body.classList.add('magnifier-active');
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let firstMove = true;
+
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (firstMove) {
+          magnifier.classList.add('visible');
+          firstMove = false;
+        }
+      });
+
+      document.addEventListener('mouseleave', function() {
+        magnifier.classList.remove('visible');
+        firstMove = true;
+      });
+
+      document.addEventListener('mouseenter', function() {
+        if (!firstMove) {
+          magnifier.classList.add('visible');
+        }
+      });
+
+      // 平滑跟随
+      function animate() {
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        magnifier.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px)';
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // ====== 菜单切换 ======
     function toggleMenu() {
       const overlay = document.getElementById('menuOverlay');
       overlay.classList.toggle('open');
