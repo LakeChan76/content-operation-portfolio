@@ -852,6 +852,160 @@
     .delay-4 { animation-delay: 0.7s; }
     .delay-5 { animation-delay: 0.9s; }
 
+    /* ====== 开场互动页面 ====== */
+    .fm-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: none;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .fm-intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .fm-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      filter: blur(6px);
+      opacity: 0.35;
+      user-select: none;
+    }
+
+    .fm-line {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--ink);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .fm-line.fm-target {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    .fm-lens {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid var(--ink);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25), inset 0 0 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      background: var(--paper);
+      z-index: 2;
+      will-change: left, top;
+    }
+
+    .fm-lens-inner {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      will-change: transform;
+    }
+
+    .fm-lens-inner .fm-line {
+      filter: blur(0);
+      opacity: 1;
+    }
+
+    .fm-skip {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: transparent;
+      border: 1.5px solid var(--ink);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .fm-skip:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .fm-hint {
+      position: fixed;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      z-index: 5;
+      transition: opacity 0.4s ease;
+    }
+
+    .fm-hint.fade {
+      opacity: 0;
+    }
+
+    .fm-found {
+      position: fixed;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      z-index: 5;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fm-found.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .fm-lens {
+        width: 140px;
+        height: 140px;
+        border-width: 3px;
+      }
+      .fm-line {
+        font-size: 1.1rem;
+      }
+      .fm-line.fm-target {
+        font-size: 1.7rem;
+      }
+    }
+
     /* ====== 滚动显现动画 ====== */
     .reveal {
       opacity: 0;
@@ -931,6 +1085,59 @@
   </style>
 </head>
 <body>
+
+  <!-- ====== 开场互动页面 ====== -->
+  <div class="fm-intro" id="fmIntro">
+    <div class="fm-bg" id="fmBg">
+      <div class="fm-line">内容运营个人档案</div>
+      <div class="fm-line">调查编辑部</div>
+      <div class="fm-line">档案编号 CO-2026-001</div>
+      <div class="fm-line">武汉，中国</div>
+      <div class="fm-line">2026届应届毕业生</div>
+      <div class="fm-line">AI内容运营</div>
+      <div class="fm-line">小红书：小孜的运营日记</div>
+      <div class="fm-line">公众号：小孜的运营日记</div>
+      <div class="fm-line fm-target" id="fmTarget">陈子文</div>
+      <div class="fm-line">4A广告公司活动运营</div>
+      <div class="fm-line">1200㎡沉浸式IP展</div>
+      <div class="fm-line">70+篇原创内容</div>
+      <div class="fm-line">可灵 · 即梦 · 剪映</div>
+      <div class="fm-line">目标岗位：AI内容运营</div>
+      <div class="fm-line">随时可到岗</div>
+      <div class="fm-line">调查结果已发布</div>
+      <div class="fm-line">The Investigation Edition</div>
+      <div class="fm-line">Est. 2026</div>
+      <div class="fm-line">内容运营个人档案</div>
+      <div class="fm-line">调查编辑部</div>
+    </div>
+    <div class="fm-lens" id="fmLens">
+      <div class="fm-lens-inner" id="fmLensInner">
+        <div class="fm-line">内容运营个人档案</div>
+        <div class="fm-line">调查编辑部</div>
+        <div class="fm-line">档案编号 CO-2026-001</div>
+        <div class="fm-line">武汉，中国</div>
+        <div class="fm-line">2026届应届毕业生</div>
+        <div class="fm-line">AI内容运营</div>
+        <div class="fm-line">小红书：小孜的运营日记</div>
+        <div class="fm-line">公众号：小孜的运营日记</div>
+        <div class="fm-line fm-target" id="fmTarget2">陈子文</div>
+        <div class="fm-line">4A广告公司活动运营</div>
+        <div class="fm-line">1200㎡沉浸式IP展</div>
+        <div class="fm-line">70+篇原创内容</div>
+        <div class="fm-line">可灵 · 即梦 · 剪映</div>
+        <div class="fm-line">目标岗位：AI内容运营</div>
+        <div class="fm-line">随时可到岗</div>
+        <div class="fm-line">调查结果已发布</div>
+        <div class="fm-line">The Investigation Edition</div>
+        <div class="fm-line">Est. 2026</div>
+        <div class="fm-line">内容运营个人档案</div>
+        <div class="fm-line">调查编辑部</div>
+      </div>
+    </div>
+    <button class="fm-skip" id="fmSkip">跳过 →</button>
+    <div class="fm-hint" id="fmHint">拿起放大镜 — 找到调查对象</div>
+    <div class="fm-found" id="fmFound">已确认：陈子文</div>
+  </div>
 
   <!-- ====== 放大镜鼠标 ====== -->
   <div class="magnifier-cursor" id="magnifierCursor" aria-hidden="true">
@@ -1275,6 +1482,113 @@
   </main>
 
   <script>
+    // ====== 开场互动页面 ======
+    (function() {
+      const fmIntro = document.getElementById('fmIntro');
+      const fmLens = document.getElementById('fmLens');
+      const fmLensInner = document.getElementById('fmLensInner');
+      const fmBg = document.getElementById('fmBg');
+      const fmHint = document.getElementById('fmHint');
+      const fmFound = document.getElementById('fmFound');
+      const fmSkip = document.getElementById('fmSkip');
+      const fmTarget = document.getElementById('fmTarget');
+      const fmTarget2 = document.getElementById('fmTarget2');
+
+      // 检查是否已经看过开场
+      if (document.cookie.indexOf('fm_intro_seen=1') !== -1) {
+        fmIntro.classList.add('hidden');
+        return;
+      }
+
+      // 同步放大镜内部内容的位置与背景一致
+      function syncLensInner(mouseX, mouseY) {
+        // 背景内容居中，放大镜内部也需要偏移使内容对齐
+        const bgRect = fmBg.getBoundingClientRect();
+        const bgCenterX = bgRect.left + bgRect.width / 2;
+        const bgCenterY = bgRect.top + bgRect.height / 2;
+
+        // 放大镜内部内容需要偏移量
+        const offsetX = bgCenterX - mouseX;
+        const offsetY = bgCenterY - mouseY;
+
+        fmLensInner.style.transform = 'translate(' + (-offsetX - 100) + 'px, ' + (-offsetY - 100) + 'px)';
+      }
+
+      let lensX = window.innerWidth / 2;
+      let lensY = window.innerHeight / 2;
+      let targetX = lensX;
+      let targetY = lensY;
+      let found = false;
+
+      // 放大镜跟随鼠标
+      fmIntro.addEventListener('mousemove', function(e) {
+        targetX = e.clientX;
+        targetY = e.clientY;
+      });
+
+      // 触摸支持
+      fmIntro.addEventListener('touchmove', function(e) {
+        if (e.touches.length > 0) {
+          targetX = e.touches[0].clientX;
+          targetY = e.touches[0].clientY;
+        }
+        e.preventDefault();
+      }, { passive: false });
+
+      function animateLens() {
+        lensX += (targetX - lensX) * 0.15;
+        lensY += (targetY - lensY) * 0.15;
+        fmLens.style.left = lensX + 'px';
+        fmLens.style.top = lensY + 'px';
+
+        // 同步内部内容
+        syncLensInner(lensX, lensY);
+
+        // 检查是否找到了目标
+        if (!found) {
+          const targetRect = fmTarget.getBoundingClientRect();
+          const targetCenterX = targetRect.left + targetRect.width / 2;
+          const targetCenterY = targetRect.top + targetRect.height / 2;
+          const dist = Math.sqrt(Math.pow(lensX - targetCenterX, 2) + Math.pow(lensY - targetCenterY, 2));
+
+          if (dist < 80) {
+            found = true;
+            fmHint.classList.add('fade');
+            fmFound.classList.add('show');
+            // 2秒后自动进入主站
+            setTimeout(closeIntro, 2000);
+          }
+        }
+
+        requestAnimationFrame(animateLens);
+      }
+
+      // 初始位置
+      fmLens.style.left = lensX + 'px';
+      fmLens.style.top = lensY + 'px';
+      animateLens();
+
+      function closeIntro() {
+        fmIntro.classList.add('hidden');
+        document.cookie = 'fm_intro_seen=1; path=/; max-age=2592000'; // 30天
+        setTimeout(function() {
+          fmIntro.style.display = 'none';
+        }, 900);
+      }
+
+      // 跳过按钮
+      fmSkip.addEventListener('click', closeIntro);
+
+      // 也允许点击任意位置跳过（3秒后启用）
+      setTimeout(function() {
+        fmIntro.addEventListener('click', function(e) {
+          if (e.target !== fmSkip && !found) {
+            // 不自动跳过，让用户探索
+          }
+        });
+      }, 3000);
+    })();
+
     // ====== 放大镜鼠标 ======
     (function() {
       const magnifier = document.getElementById('magnifierCursor');
