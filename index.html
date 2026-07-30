@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>陈子文 — 内容运营个人档案</title>
+  <title>陈子文 — 新媒体内容运营 × AI提效实践</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -1029,8 +1029,230 @@
       transform: scaleX(1);
     }
 
+    /* ====== 数据卡片 ====== */
+    .hero-intro {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--ink-light);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .data-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-top: 2px solid var(--rule);
+      border-bottom: 2px solid var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .data-card {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .data-card-value {
+      font-family: var(--font-en);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .data-card-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.4;
+      letter-spacing: 0.05em;
+    }
+
+    .data-card-divider {
+      width: 1px;
+      background: var(--rule-light);
+      align-self: stretch;
+    }
+
+    /* ====== 数据总览模块 ====== */
+    .data-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border-top: 2px solid var(--rule);
+      border-left: 2px solid var(--rule);
+    }
+
+    .data-summary-item {
+      padding: 1.5rem;
+      border-right: 2px solid var(--rule);
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .data-summary-item .key {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .data-summary-item .value {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .data-summary-item .value strong {
+      font-size: 1.6rem;
+      font-family: var(--font-en);
+      display: inline-block;
+      margin-right: 0.3rem;
+    }
+
+    .data-summary-item .detail {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* ====== Workflow 流程图 ====== */
+    .workflow-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 1.5rem 0;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .workflow-step:last-child {
+      border-bottom: none;
+    }
+
+    .workflow-step-num {
+      font-family: var(--font-en);
+      font-size: 0.7rem;
+      color: var(--muted);
+      width: 1.5rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .workflow-step-text {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      line-height: 1.5;
+    }
+
+    .workflow-step-arrow {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      padding: 0.15rem 0;
+      letter-spacing: 0.1em;
+    }
+
+    /* ====== 其他创意实践 ====== */
+    .other-creative {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule-light);
+    }
+
+    .other-creative .label {
+      margin-bottom: 1rem;
+    }
+
+    .other-creative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .other-creative-item {
+      padding: 1rem;
+      border: 1px solid var(--rule-light);
+      transition: background 0.2s;
+    }
+
+    .other-creative-item:hover {
+      background: rgba(0,0,0,0.015);
+    }
+
+    .other-creative-item h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .other-creative-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .other-creative-item .tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--rule-light);
+      padding: 0.15rem 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .other-creative-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--ink);
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .other-creative-link:hover {
+      color: var(--accent);
+    }
+
+    .other-creative-link svg {
+      width: 12px;
+      height: 12px;
+    }
+
     /* ====== 响应式 ====== */
     @media (max-width: 768px) {
+      .data-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .data-card-divider:nth-child(4) {
+        display: none;
+      }
+      .data-summary-grid {
+        grid-template-columns: 1fr;
+      }
+      .other-creative-grid {
+        grid-template-columns: 1fr;
+      }
+      .workflow-flow {
+        max-width: 100%;
+      }
       .masthead-top {
         grid-template-columns: 1fr 1fr;
       }
@@ -1156,6 +1378,7 @@
     </div>
     <nav class="menu-overlay-links">
       <a href="#about" onclick="toggleMenu()">人物侧写</a>
+      <a href="#data" onclick="toggleMenu()">运营数据</a>
       <a href="#works" onclick="toggleMenu()">作品调查</a>
       <a href="#lab" onclick="toggleMenu()">能力档案</a>
       <a href="#ledger" onclick="toggleMenu()">职业履历</a>
@@ -1201,10 +1424,35 @@
         这件事
       </h1>
       <p class="hero-subhead animate-slide delay-3">
-        本科在4A广告公司做活动运营，读研期间持续写作锻炼表达能力。喜欢自媒体和摄影，对内容运营有天然热情。
+        内容策略 × 用户洞察 × AI提效实践
       </p>
-      <div class="hero-byline animate-fade delay-4">
-        <strong>调查编辑部</strong> · 发自武汉，在求职路上
+      <p class="hero-intro animate-fade delay-4">
+        本科阶段曾在4A广告公司参与活动运营与品牌传播；<br>
+        研究生期间持续进行内容创作与AI工具实践。<br><br>
+        目前探索如何利用AI Agent与Workflow，<br>
+        提升内容策划、生产与复盘效率。
+      </p>
+      <!-- 数据卡片 -->
+      <div class="data-cards animate-fade delay-5">
+        <div class="data-card">
+          <div class="data-card-value">18+</div>
+          <div class="data-card-label">小红书内容发布</div>
+        </div>
+        <div class="data-card-divider"></div>
+        <div class="data-card">
+          <div class="data-card-value">1500+</div>
+          <div class="data-card-label">累计点赞收藏</div>
+        </div>
+        <div class="data-card-divider"></div>
+        <div class="data-card">
+          <div class="data-card-value">1.4万+</div>
+          <div class="data-card-label">公众号单篇最高阅读</div>
+        </div>
+        <div class="data-card-divider"></div>
+        <div class="data-card">
+          <div class="data-card-value">1h</div>
+          <div class="data-card-label">AI辅助内容生产周期</div>
+        </div>
       </div>
       <div class="hero-cta animate-fade delay-5">
         <a href="#works">
@@ -1231,10 +1479,20 @@
         </div>
         <div class="profile-text">
           <p>
-            陈子文，2026届应届硕士毕业生，目标岗位：AI内容运营。本科阶段在4A广告公司负责活动运营，统筹过1200㎡沉浸式IP展；读研期间保持写作习惯，累计产出公众号/新闻稿/短视频脚本等内容70余篇。
+            他不是技术出身，但相信内容的力量。
           </p>
           <p>
-            他不是技术出身，但相信内容的力量。熟练运用可灵、即梦、剪映等AI工具，可独立完成从文案策划到成片输出的全流程。在他看来，内容运营不是自嗨式的创作，而是以内容为杠杆，连接"用户需求"与"商业目标"。
+            陈子文，华中农业大学硕士。
+          </p>
+          <p>
+            本科阶段曾于4A广告公司负责活动运营与品牌传播，具备用户需求分析、内容策划及项目执行经验。
+          </p>
+          <p>
+            研究生期间持续探索AI辅助内容生产，熟悉ChatGPT、Claude、Agent Workflow等工具，能够完成从行业研究、选题策划到内容优化的完整流程。
+          </p>
+          <p>
+            定位：<br>
+            不是技术开发者，而是懂内容、懂用户，并善于利用AI提升效率的内容运营者。
           </p>
           <div class="profile-meta">
             <div class="profile-meta-item">
@@ -1260,25 +1518,75 @@
 
     <hr class="rule container">
 
+    <!-- ====== 内容运营数据总览 ====== -->
+    <section class="section container" id="data">
+      <div class="section-header reveal">
+        <div class="label">content operation data</div>
+        <h2>运营数据总览</h2>
+        <p>以下为个人内容运营项目的关键数据汇总，覆盖微信公众号与小红书双平台。</p>
+      </div>
+      <div class="data-summary-grid reveal">
+        <div class="data-summary-item">
+          <div class="key">content platform</div>
+          <div class="value">内容平台</div>
+          <div class="detail">微信公众号 / 小红书</div>
+        </div>
+        <div class="data-summary-item">
+          <div class="key">content volume</div>
+          <div class="value"><strong>29+</strong> 篇</div>
+          <div class="detail">内容数量（公众号11篇 + 小红书18篇）</div>
+        </div>
+        <div class="data-summary-item">
+          <div class="key">engagement</div>
+          <div class="value"><strong>1500+</strong></div>
+          <div class="detail">累计点赞收藏（小红书）</div>
+        </div>
+        <div class="data-summary-item">
+          <div class="key">top performing</div>
+          <div class="value"><strong>1.4万</strong> 阅读</div>
+          <div class="detail">最高单篇表现（公众号）</div>
+        </div>
+        <div class="data-summary-item">
+          <div class="key">efficiency</div>
+          <div class="value">AI辅助提升约 <strong>80%</strong></div>
+          <div class="detail">内容生产效率提升（从半天压缩至约1小时）</div>
+        </div>
+        <div class="data-summary-item">
+          <div class="key">content themes</div>
+          <div class="value">AI应用 / 求职成长 / 岗位认知</div>
+          <div class="detail">核心内容方向覆盖</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule container">
+
     <!-- ====== 作品调查 ====== -->
     <section class="section container" id="works">
       <div class="section-header reveal">
         <div class="label">selected works</div>
         <h2>作品调查</h2>
-        <p>以下档案记录了三项核心内容运营实践，均附带完整的过程证据与数据结果。</p>
+        <p>以下档案记录了核心内容运营实践，均附带完整的过程证据与数据结果。</p>
       </div>
 
-      <!-- 案件一：小红书 -->
+      <!-- CASE FILE NO.01：小孜内容运营账号 -->
       <article class="case-file reveal">
         <div class="case-file-image case-file-image--portrait">
           <img src="assets/xiaohongshu-profile-new.png" alt="小红书主页">
         </div>
         <div class="case-file-content">
-          <div class="case-file-tag">Case File No. 01 — 平台运营</div>
-          <h3>小红书：小孜的运营日记</h3>
-          <p>
-            专注内容运营入门教学，拆解选题、写作、制作、数据分析等核心能力。累计获赞与收藏1502，单篇最高阅读3495。笔记涵盖"什么是内容运营""选题能力""写作力"等核心技能拆解。
-          </p>
+          <div class="case-file-tag">CASE FILE NO.01 — 平台运营</div>
+          <h3>小孜内容运营账号</h3>
+          <p><strong>定位：</strong>个人内容运营实践项目</p>
+          <p>围绕AI应用、求职成长、内容运营岗位认知等主题，运营微信公众号、小红书账号。</p>
+          <p><strong>数据：</strong></p>
+          <ul style="font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;padding-left:1rem;list-style:disc;">
+            <li>小红书：18篇内容</li>
+            <li>累计：1500+点赞收藏</li>
+            <li>公众号：11篇内容</li>
+            <li>最高：1.4万阅读</li>
+          </ul>
+          <p><strong>重点展示：</strong>内容定位 · 用户需求分析 · 选题策略 · 内容复盘</p>
           <a href="https://www.xiaohongshu.com/user/profile/69dcbc950000000033026e2d" target="_blank" class="case-file-link">
             打开案件档案
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -1286,17 +1594,18 @@
         </div>
       </article>
 
-      <!-- 案件二：公众号 -->
+      <!-- CASE FILE NO.02：公众号爆款内容拆解 -->
       <article class="case-file reveal">
         <div class="case-file-image">
           <img src="assets/wechat-articles.jpg" alt="公众号文章">
         </div>
         <div class="case-file-content">
-          <div class="case-file-tag">Case File No. 02 — 长图文运营</div>
-          <h3>公众号：小孜的运营日记</h3>
-          <p>
-            以"AI+内容运营"为核心，探索AI工具在真实运营场景中的落地效果。单篇最高阅读8,777。从"什么是AI内容运营"到"AI工具实测"，系统性地探索AI在内容运营中的真实价值。
-          </p>
+          <div class="case-file-tag">CASE FILE NO.02 — 内容策略</div>
+          <h3>新人如何理解内容运营</h3>
+          <p><strong>内容背景：</strong>毕业季大量学生不了解内容运营岗位，存在职业认知需求。</p>
+          <p><strong>用户洞察：</strong>用户关注"岗位是什么""日常工作是什么""薪资如何""是否适合自己"。</p>
+          <p><strong>内容策略：</strong>通过岗位定义、工作内容、职业发展、适合人群四个维度，降低用户理解成本。</p>
+          <p><strong>结果：</strong>点赞收藏400+，收藏280+，持续获得长尾流量。</p>
           <a href="https://mp.weixin.qq.com/cgi-bin/home?t=home/index&lang=zh_CN&token=384210975" target="_blank" class="case-file-link">
             打开案件档案
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -1304,23 +1613,87 @@
         </div>
       </article>
 
-      <!-- 案件三：AI视频 -->
+      <!-- CASE FILE NO.03：AI辅助内容生产Workflow -->
       <article class="case-file reveal">
-        <div class="case-file-image">
-          <img src="assets/tea-picking.jpg" alt="茶叶广告">
+        <div class="case-file-image" style="aspect-ratio:auto;min-height:360px;display:flex;align-items:center;justify-content:center;padding:2rem;">
+          <div style="width:100%;">
+            <div class="workflow-flow">
+              <div class="workflow-step"><span class="workflow-step-num">01</span><span class="workflow-step-text">行业热点发现</span></div>
+              <div class="workflow-step-arrow">↓</div>
+              <div class="workflow-step"><span class="workflow-step-num">02</span><span class="workflow-step-text">竞品内容分析</span></div>
+              <div class="workflow-step-arrow">↓</div>
+              <div class="workflow-step"><span class="workflow-step-num">03</span><span class="workflow-step-text">用户痛点挖掘</span></div>
+              <div class="workflow-step-arrow">↓</div>
+              <div class="workflow-step"><span class="workflow-step-num">04</span><span class="workflow-step-text">选题判断</span></div>
+              <div class="workflow-step-arrow">↓</div>
+              <div class="workflow-step"><span class="workflow-step-num">05</span><span class="workflow-step-text">内容框架搭建</span></div>
+              <div class="workflow-step-arrow">↓</div>
+              <div class="workflow-step"><span class="workflow-step-num">06</span><span class="workflow-step-text">AI辅助撰写</span></div>
+              <div class="workflow-step-arrow">↓</div>
+              <div class="workflow-step"><span class="workflow-step-num">07</span><span class="workflow-step-text">人工优化审核</span></div>
+              <div class="workflow-step-arrow">↓</div>
+              <div class="workflow-step"><span class="workflow-step-num">08</span><span class="workflow-step-text">发布复盘</span></div>
+            </div>
+          </div>
         </div>
         <div class="case-file-content">
-          <div class="case-file-tag">Case File No. 03 — 视频创作</div>
-          <h3>茶叶品牌30秒AI广告</h3>
-          <p>
-            全流程使用AI工具完成的30秒广告片。从脚本策划到画面生成（即梦）再到剪辑输出（剪映），展示了将AI工具落地到商业内容生产中的实际能力。采用"原产地叙事"结构，纯画面叙事。
-          </p>
-          <a href="https://www.bilibili.com/video/BV1j9G76VEyE/" target="_blank" class="case-file-link">
-            打开案件档案
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
+          <div class="case-file-tag">CASE FILE NO.03 — 效率工具</div>
+          <h3>AI辅助内容生产Workflow</h3>
+          <p>通过AI工具，将原本半天以上的内容生产流程，压缩至约1小时。</p>
+          <p><strong>流程拆解：</strong></p>
+          <ul style="font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;padding-left:1rem;list-style:disc;">
+            <li>热点发现 → 竞品分析 → 痛点挖掘 → 选题判断</li>
+            <li>框架搭建 → AI撰写 → 人工审核 → 发布复盘</li>
+          </ul>
+          <p>从选题到发布，AI辅助完成70%的重复性工作，人工聚焦于策略判断与内容优化。</p>
         </div>
       </article>
+
+      <!-- CASE FILE NO.04：AI选题管理系统 -->
+      <article class="case-file reveal">
+        <div class="case-file-image" style="aspect-ratio:auto;min-height:280px;display:flex;align-items:center;justify-content:center;padding:2rem;background:#e8e4dc;">
+          <div style="text-align:center;color:var(--muted);font-size:0.85rem;line-height:2;">
+            <div style="font-family:var(--font-serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:1rem;">选题管理系统</div>
+            <div>标签分类 · 内容管理 · 日历规划 · 数据整理</div>
+            <div style="margin-top:1rem;border-top:1px solid var(--rule-light);padding-top:1rem;max-width:300px;margin-left:auto;margin-right:auto;text-align:left;">
+              <div style="display:flex;justify-content:space-between;"><span>AI应用</span><span>▸ 3篇</span></div>
+              <div style="display:flex;justify-content:space-between;"><span>求职成长</span><span>▸ 5篇</span></div>
+              <div style="display:flex;justify-content:space-between;"><span>岗位认知</span><span>▸ 4篇</span></div>
+              <div style="display:flex;justify-content:space-between;"><span>工具测评</span><span>▸ 2篇</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-file-content">
+          <div class="case-file-tag">CASE FILE NO.04 — 效率工具</div>
+          <h3>AI选题管理系统</h3>
+          <p><strong>定位：</strong>内容运营效率优化工具探索。不是AI产品，而是内容运营流程优化能力。</p>
+          <p>基于个人内容运营需求，搭建选题管理系统，用于记录选题、管理内容资产、追踪发布状态。</p>
+          <p><strong>核心功能：</strong></p>
+          <ul style="font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;padding-left:1rem;list-style:disc;">
+            <li>标签分类：按主题/平台/状态分类管理</li>
+            <li>内容管理：选题库与内容资产统一管理</li>
+            <li>日历规划：发布排期与内容节奏把控</li>
+            <li>数据整理：发布效果追踪与复盘</li>
+          </ul>
+          <p>体现内容运营流程优化能力，从选题到复盘的全链路管理。</p>
+        </div>
+      </article>
+
+      <!-- 其他创意实践（弱化茶叶广告） -->
+      <div class="other-creative reveal">
+        <div class="label">other creative practice</div>
+        <div class="other-creative-grid">
+          <div class="other-creative-item">
+            <div class="tag">video</div>
+            <h4>茶叶品牌30秒AI广告</h4>
+            <p>全流程使用AI工具完成的30秒广告片，从脚本策划到画面生成再到剪辑输出。</p>
+            <a href="https://www.bilibili.com/video/BV1j9G76VEyE/" target="_blank" class="other-creative-link">
+              查看作品
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <hr class="rule container">
@@ -1335,33 +1708,33 @@
       <div class="lab-grid reveal">
         <div class="lab-item">
           <div class="lab-label">phase 01</div>
-          <h4>洞察需求</h4>
-          <p>用户调研、竞品分析、热点追踪。擅长从面试经历和平台数据中提炼真实痛点，转化为选题。</p>
+          <h4>用户洞察</h4>
+          <p>用户需求分析、竞品评论分析、内容方向判断。</p>
         </div>
         <div class="lab-item">
           <div class="lab-label">phase 02</div>
-          <h4>内容生产</h4>
-          <p>公众号长图文、小红书图文、短视频脚本。累计产出70+篇，熟悉不同平台的表达规则。</p>
+          <h4>内容策略</h4>
+          <p>选题规划、内容框架设计、平台差异化运营。</p>
         </div>
         <div class="lab-item">
           <div class="lab-label">phase 03</div>
-          <h4>渠道分发</h4>
-          <p>小红书、公众号、B站多平台运营。理解各平台算法逻辑与内容适配策略。</p>
+          <h4>渠道运营</h4>
+          <p>微信公众号、小红书、内容分发策略。</p>
         </div>
         <div class="lab-item">
           <div class="lab-label">phase 04</div>
           <h4>数据复盘</h4>
-          <p>Excel数据处理、阅读/互动/转化漏斗分析。通过数据反馈迭代内容策略。</p>
+          <p>阅读、点赞、收藏、评论数据分析。</p>
         </div>
         <div class="lab-item">
           <div class="lab-label">tool kit</div>
-          <h4>AIGC工具</h4>
-          <p>可灵、即梦、剪映、ChatGPT/Claude。可独立完成从文案到成片的AI辅助全流程。</p>
+          <h4>AI工具</h4>
+          <p>ChatGPT、Claude、Agent、Workflow。</p>
         </div>
         <div class="lab-item">
           <div class="lab-label">method</div>
-          <h4>活动运营</h4>
-          <p>4A广告公司项目经验，统筹1200㎡沉浸式IP展。擅长需求拆解、流程搭建、多方协调。</p>
+          <h4>运营方法</h4>
+          <p>内容策划、用户研究、增长思维。</p>
         </div>
       </div>
     </section>
@@ -1384,19 +1757,12 @@
           </div>
         </div>
         <div class="ledger-item">
-          <div class="ledger-date">2025 — 2026</div>
+          <div class="ledger-date">2025 — 至今</div>
           <div class="ledger-content">
-            <h4>自媒体运营</h4>
-            <div class="company">个人项目 · 小红书 & 公众号</div>
-            <p>从零搭建"小孜的运营日记"双平台账号。小红书聚焦内容运营入门教学，公众号探索AI工具在内容运营中的落地效果，持续输出原创内容并积累数据反馈。</p>
-          </div>
-        </div>
-        <div class="ledger-item">
-          <div class="ledger-date">2026 — 至今</div>
-          <div class="ledger-content">
-            <h4>求职中</h4>
-            <div class="company">目标岗位：AI内容运营</div>
-            <p>正在寻找AI内容运营相关全职机会。期待加入一个重视内容价值的团队，将自己在内容策划、AIGC应用、数据分析上的能力落地到实际业务中。</p>
+            <h4>AI内容运营实践</h4>
+            <div class="company">个人项目 · 独立运营</div>
+            <p>独立运营微信公众号、小红书账号，持续进行AI辅助内容生产实践。</p>
+            <p>包括：选题研究、内容策划、AI Workflow搭建、数据复盘。</p>
           </div>
         </div>
       </div>
@@ -1469,7 +1835,7 @@
     <footer class="footer container">
       <div class="footer-inner">
         <div class="footer-left">
-          <strong>陈子文</strong> · 内容运营个人档案<br>
+          <strong>陈子文</strong> · 新媒体内容运营 × AI提效实践<br>
           本档案由调查编辑部手工排版 · 2026年7月发行
         </div>
         <div class="footer-right">
